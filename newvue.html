@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning vue</title>
+  <link rel="stylesheet" href="newvue.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <h1 class="hello">Hello World</h1>
+  <div id="app">
+    <h2 v-if="showBooks">I Am A Template</h2>
+
+    <button @click ="toggleUp">
+      <span v-if="showBooks">Hide Box</span>
+      <span v-else>Show Box</span>
+    </button>
+
+    <p>
+      The title of this book is '{{title}}' and it is written by
+      {{author}} at age {{age}}
+    </p>
+    <button @click="age++">Increase age</button>
+    <button @click="age--">Decrease age</button>
+    <div @click="changeTitle('Arbitrage')">Change book title</div>
+    <br>
+    <div v-show="showBooks">Currently Showing Books</div>
+    <br>
+    <div class="box" @mouseover="handleEvents($event, 5)">Mouse Over (Enter)</div>
+    <div class="box" @mouseleave="handleEvents">Mouse Leave</div>
+    <div class="box" @dblclick="handleEvents">Double Click</div>
+    <div class="box"@mousemove="handleMouseMove">position - {{x}} and {{y}}</div>
+  </div>
+
+  <script src="newvue.js"></script>
+</body>
+</html>
